@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Зарплаты — VIPER COMPANY</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .bg-gradient {
+      background: linear-gradient(to right, #0f172a, #1e293b);
+    }
+  </style>
+</head>
+<body class="bg-gradient text-gray-100">
+
+  <!-- Навигация -->
+  <nav class="bg-gray-900/70 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <div class="text-green-400 font-bold text-xl">VIPER</div>
+        <div class="hidden md:flex space-x-6 text-gray-300">
+          <a href="index.html" class="hover:text-green-400">Главная</a>
+          <a href="about.html" class="hover:text-green-400">О нас</a>
+          <a href="salary.html" class="hover:text-green-400">Зарплаты</a>
+        </div>
+        <div class="md:hidden">
+          <button id="menu-btn" class="text-gray-300 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+      <a href="index.html" class="block py-2 text-gray-300 hover:text-green-400">Главная</a>
+      <a href="about.html" class="block py-2 text-gray-300 hover:text-green-400">О нас</a>
+      <a href="salary.html" class="block py-2 text-gray-300 hover:text-green-400">Зарплаты</a>
+    </div>
+  </nav>
+
+  <!-- Контент страницы -->
+  <section class="min-h-screen py-12 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl font-bold text-green-300 mb-6">Уровень зарплат</h1>
+      <p class="text-lg text-gray-300 mb-8">
+        В VIPER COMPANY мы ценим наших специалистов и обеспечиваем конкурентоспособную оплату труда.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+        <div class="bg-gray-800 rounded-xl p-6 shadow-md">
+          <h2 class="text-2xl font-semibold text-green-400 mb-2">Security Engineer</h2>
+          <p class="text-gray-300">от $5,000 до $8,000 в месяц</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-6 shadow-md">
+          <h2 class="text-2xl font-semibold text-green-400 mb-2">AI/ML Specialist</h2>
+          <p class="text-gray-300">от $6,500 до $10,000 в месяц</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-6 shadow-md">
+          <h2 class="text-2xl font-semibold text-green-400 mb-2">Cloud Architect</h2>
+          <p class="text-gray-300">от $7,000 до $11,000 в месяц</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-6 shadow-md">
+          <h2 class="text-2xl font-semibold text-green-400 mb-2">Security Researcher</h2>
+          <p class="text-gray-300">от $5,500 до $9,000 в месяц</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-6 text-center text-gray-500 text-sm border-t border-gray-700">
+    &copy; 2025 VIPER COMPANY. Все права защищены.
+  </footer>
+
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
