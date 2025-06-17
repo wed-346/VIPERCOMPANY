@@ -1,32 +1,74 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Зарплаты — VIPER COMPANY</title>
+		<title>Salary – VIPER COMPANY</title>
 		<script src="https://cdn.tailwindcss.com"></script>
 		<style>
 			body {
 				font-family: 'Segoe UI', sans-serif;
 			}
-			.bg-gradient {
-				background: linear-gradient(to right, #0f172a, #1e293b);
+			.bg-light-gray {
+				background: linear-gradient(to right, #e2e8f0, #cbd5e1);
+			}
+			.btn-glow {
+				background: linear-gradient(to right, #3b82f6, #2563eb);
+				transition: all 0.3s ease;
+				cursor: pointer;
+			}
+			.btn-glow:hover {
+				background: linear-gradient(to right, #2563eb, #3b82f6);
+				transform: scale(1.03);
+				box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+			}
+			.job-card {
+				background-color: #f8fafc; /* Tailwind slate-50 */
+				padding: 1.5rem;
+				border-radius: 0.75rem;
+				transition: all 0.3s;
+				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+				cursor: pointer;
+				border: 1px solid #cbd5e1; /* slate-300 border */
+				color: #1e293b; /* slate-800 text */
+				font-weight: 600;
+				user-select: none;
+			}
+			.job-card:hover {
+				background-color: #e0e7ff; /* indigo-100 */
+				box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+				transform: scale(1.05);
+				color: #2563eb; /* indigo-600 */
 			}
 		</style>
 	</head>
-	<body class="bg-gradient text-gray-100">
-		<!-- Навигация -->
-		<nav class="bg-gray-900/70 backdrop-blur sticky top-0 z-50">
+	<body class="bg-light-gray text-gray-800">
+		<!-- Navigation -->
+		<nav class="bg-white/80 backdrop-blur sticky top-0 z-50 shadow-md">
 			<div class="max-w-6xl mx-auto px-4">
 				<div class="flex items-center justify-between h-16">
-					<div class="text-green-400 font-bold text-xl">VIPER</div>
-					<div class="hidden md:flex space-x-6 text-gray-300">
-						<a href="index.html" class="hover:text-green-400">Главная</a>
-						<a href="about.html" class="hover:text-green-400">О нас</a>
-						<a href="salary.html" class="hover:text-green-400">Зарплаты</a>
+					<div class="text-blue-600 font-bold text-xl cursor-default">
+						VIPER
+					</div>
+					<div class="hidden md:flex space-x-6 text-gray-700">
+						<a href="index.html" class="hover:text-blue-500 cursor-pointer"
+							>Home</a
+						>
+						<a href="about.html" class="hover:text-blue-500 cursor-pointer"
+							>About</a
+						>
+						<a
+							href="salary.html"
+							class="hover:text-blue-500 cursor-pointer font-semibold"
+							>Salary</a
+						>
 					</div>
 					<div class="md:hidden">
-						<button id="menu-btn" class="text-gray-300 focus:outline-none">
+						<button
+							id="menu-btn"
+							class="text-gray-700 focus:outline-none"
+							aria-label="Toggle menu"
+						>
 							<svg
 								class="w-6 h-6"
 								fill="none"
@@ -47,78 +89,202 @@
 			<div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
 				<a
 					href="index.html"
-					class="block py-2 text-gray-300 hover:text-green-400"
-					>Главная</a
+					class="block py-2 text-gray-700 hover:text-blue-500"
+					>Home</a
 				>
 				<a
 					href="about.html"
-					class="block py-2 text-gray-300 hover:text-green-400"
-					>О нас</a
+					class="block py-2 text-gray-700 hover:text-blue-500"
+					>About</a
 				>
 				<a
-					href="money.html"
-					class="block py-2 text-gray-300 hover:text-green-400"
-					>Зарплаты</a
+					href="salary.html"
+					class="block py-2 text-gray-700 hover:text-blue-500 font-semibold"
+					>Salary</a
 				>
 			</div>
 		</nav>
 
-		<!-- Контент страницы -->
-		<section class="min-h-screen py-12 px-4">
-			<div class="max-w-4xl mx-auto text-center">
-				<h1 class="text-4xl font-bold text-green-300 mb-6">Уровень зарплат</h1>
-				<p class="text-lg text-gray-300 mb-8">
-					В VIPER COMPANY мы ценим наших специалистов и обеспечиваем
-					конкурентоспособную оплату труда.
+		<!-- Content -->
+		<section class="min-h-screen py-12 px-4 flex flex-col items-center">
+			<div class="max-w-4xl text-center mb-10">
+				<h1 class="text-4xl font-bold text-blue-600 mb-6">
+					Salary Levels & Career Growth
+				</h1>
+				<p class="text-lg text-gray-700 max-w-xl mx-auto mb-4">
+					At VIPER COMPANY, we are committed to rewarding excellence and
+					supporting your professional growth. Our competitive salary packages
+					reflect your skills, experience, and impact on our mission to
+					safeguard cyberspace.
 				</p>
+				<p class="text-md text-gray-600 max-w-xl mx-auto">
+					Explore the details below to understand the compensation ranges,
+					required qualifications, and typical responsibilities for each role.
+					Join us and become part of a cutting-edge cybersecurity team where
+					innovation meets dedication.
+				</p>
+			</div>
 
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-					<div
-						class="bg-gray-800 rounded-xl p-6 shadow-md transform transition-all duration-300 hover:scale-105 hover:bg-gray-700 hover:shadow-lg cursor-pointer"
-					>
-						<h2 class="text-2xl font-semibold text-green-400 mb-2">
-							Security Engineer
-						</h2>
-						<p class="text-gray-300">от $5,000 до $8,000 в месяц</p>
-					</div>
-					<div
-						class="bg-gray-800 rounded-xl p-6 shadow-md transform transition-all duration-300 hover:scale-105 hover:bg-gray-700 hover:shadow-lg cursor-pointer"
-					>
-						<h2 class="text-2xl font-semibold text-green-400 mb-2">
-							AI/ML Specialist
-						</h2>
-						<p class="text-gray-300">от $6,500 до $10,000 в месяц</p>
-					</div>
-					<div
-						class="bg-gray-800 rounded-xl p-6 shadow-md transform transition-all duration-300 hover:scale-105 hover:bg-gray-700 hover:shadow-lg cursor-pointer"
-					>
-						<h2 class="text-2xl font-semibold text-green-400 mb-2">
-							Cloud Architect
-						</h2>
-						<p class="text-gray-300">от $7,000 до $11,000 в месяц</p>
-					</div>
-					<div
-						class="bg-gray-800 rounded-xl p-6 shadow-md transform transition-all duration-300 hover:scale-105 hover:bg-gray-700 hover:shadow-lg cursor-pointer"
-					>
-						<h2 class="text-2xl font-semibold text-green-400 mb-2">
-							Security Researcher
-						</h2>
-						<p class="text-gray-300">от $5,500 до $9,000 в месяц</p>
-					</div>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl w-full">
+				<div
+					onclick="openModal(
+          'Security Engineer',
+          '$5,000 – $8,000 per month',
+          `The Security Engineer role focuses on protecting networks and systems from cyber threats. You will conduct penetration testing, vulnerability assessments, and incident response.
+          
+          <strong>Required Skills:</strong> Deep knowledge of TCP/IP, Linux administration, firewall configuration, and scripting.
+          
+          <strong>Responsibilities:</strong> Monitor security alerts, audit infrastructure, implement security policies, and collaborate with development teams to fix vulnerabilities.`
+        )"
+					class="job-card"
+					tabindex="0"
+					role="button"
+					aria-pressed="false"
+				>
+					Security Engineer
+					<p class="mt-2 text-sm text-gray-600 font-normal">
+						Protect our infrastructure through active monitoring, threat
+						analysis, and vulnerability management.
+					</p>
+				</div>
+				<div
+					onclick="openModal(
+          'AI/ML Specialist',
+          '$6,500 – $10,000 per month',
+          `As an AI/ML Specialist, you will develop advanced machine learning models to detect and mitigate cyber threats in real time.
+          
+          <strong>Required Skills:</strong> Expertise in Python, TensorFlow/PyTorch, data preprocessing, and model deployment.
+          
+          <strong>Responsibilities:</strong> Design anomaly detection algorithms, work with large datasets, improve threat intelligence systems, and automate defense mechanisms.`
+        )"
+					class="job-card"
+					tabindex="0"
+					role="button"
+					aria-pressed="false"
+				>
+					AI/ML Specialist
+					<p class="mt-2 text-sm text-gray-600 font-normal">
+						Build AI-powered solutions to identify and stop threats before they
+						impact our systems.
+					</p>
+				</div>
+				<div
+					onclick="openModal(
+          'Cloud Architect',
+          '$7,000 – $11,000 per month',
+          `The Cloud Architect designs secure and scalable cloud infrastructures, ensuring high availability and compliance.
+          
+          <strong>Required Skills:</strong> Proficiency with AWS/Azure/GCP, DevOps pipelines, container orchestration (Kubernetes), and cloud security best practices.
+          
+          <strong>Responsibilities:</strong> Architect cloud solutions, enforce security controls, optimize resources, and collaborate with cross-functional teams for deployment.`
+        )"
+					class="job-card"
+					tabindex="0"
+					role="button"
+					aria-pressed="false"
+				>
+					Cloud Architect
+					<p class="mt-2 text-sm text-gray-600 font-normal">
+						Lead the design of secure cloud environments that power our products
+						and services.
+					</p>
+				</div>
+				<div
+					onclick="openModal(
+          'Security Researcher',
+          '$5,500 – $9,000 per month',
+          `Security Researchers investigate emerging threats and vulnerabilities to keep our defenses ahead of attackers.
+          
+          <strong>Required Skills:</strong> Strong knowledge of reverse engineering, exploit development, malware analysis, and scripting languages.
+          
+          <strong>Responsibilities:</strong> Conduct threat intelligence research, discover zero-day vulnerabilities, report findings, and contribute to the security community.`
+        )"
+					class="job-card"
+					tabindex="0"
+					role="button"
+					aria-pressed="false"
+				>
+					Security Researcher
+					<p class="mt-2 text-sm text-gray-600 font-normal">
+						Explore cutting-edge threats and develop insights to enhance our
+						security posture.
+					</p>
 				</div>
 			</div>
 		</section>
 
+		<!-- Modal -->
+		<div
+			id="modal-overlay"
+			class="fixed inset-0 bg-white/80 backdrop-blur-sm hidden z-50 flex items-center justify-center px-4"
+		>
+			<div
+				id="modal"
+				class="bg-white max-w-lg w-full p-6 rounded-xl shadow-lg relative border border-gray-300 overflow-y-auto max-h-[80vh]"
+			>
+				<button
+					onclick="closeModal()"
+					aria-label="Close modal"
+					class="absolute top-3 right-4 text-gray-400 hover:text-red-500 text-3xl font-bold leading-none"
+				>
+					&times;
+				</button>
+				<h2 id="modal-title" class="text-3xl font-bold text-blue-600 mb-4"></h2>
+				<p
+					id="modal-salary"
+					class="mb-5 text-md text-gray-600 font-semibold"
+				></p>
+				<div
+					id="modal-content"
+					class="text-gray-700 leading-relaxed whitespace-pre-line mb-6"
+				></div>
+				<button
+					class="btn-glow text-white px-6 py-3 rounded-lg font-semibold"
+					onclick="closeModal()"
+				>
+					Apply Now
+				</button>
+			</div>
+		</div>
+
 		<!-- Footer -->
 		<footer
-			class="py-6 text-center text-gray-500 text-sm border-t border-gray-700"
+			class="py-8 text-center text-gray-600 text-sm border-t border-gray-400 mt-16 max-w-6xl mx-auto px-4"
 		>
-			&copy; 2025 VIPER COMPANY. Все права защищены.
+			<p>© 2025 VIPER COMPANY. All rights reserved.</p>
+			<p class="mt-2 max-w-xl mx-auto text-gray-500">
+				We are committed to diversity and inclusion. Join us to work in an
+				innovative environment that encourages professional development,
+				creativity, and teamwork.
+			</p>
 		</footer>
 
+		<!-- Scripts -->
 		<script>
 			document.getElementById('menu-btn').addEventListener('click', () => {
 				document.getElementById('mobile-menu').classList.toggle('hidden')
+			})
+
+			function openModal(title, salary, content) {
+				document.getElementById('modal-overlay').classList.remove('hidden')
+				document.getElementById('modal-title').textContent = title
+				document.getElementById('modal-salary').textContent =
+					'Salary: ' + salary
+				// Set innerHTML to allow <strong> tags from content
+				document.getElementById('modal-content').innerHTML = content
+				// Focus modal for accessibility
+				document.getElementById('modal').focus()
+			}
+
+			function closeModal() {
+				document.getElementById('modal-overlay').classList.add('hidden')
+			}
+
+			// Close modal on ESC key
+			window.addEventListener('keydown', e => {
+				if (e.key === 'Escape') {
+					closeModal()
+				}
 			})
 		</script>
 	</body>
