@@ -1,68 +1,178 @@
-<!-- about.html -->
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>О нас — VIPER COMPANY</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-    }
-    .bg-gradient {
-      background: linear-gradient(to right, #0f172a, #1e293b);
-    }
-  </style>
-</head>
-<body class="bg-gradient text-gray-100">
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>About Us – VIPER COMPANY</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<style>
+			body {
+				font-family: 'Segoe UI', sans-serif;
+			}
+			.bg-light-gray {
+				background: linear-gradient(to right, #e2e8f0, #cbd5e1);
+			}
+			.fade-up {
+				opacity: 0;
+				transform: translateY(20px);
+				transition: all 0.6s ease;
+			}
+			.fade-up.show {
+				opacity: 1;
+				transform: translateY(0);
+			}
+			nav a {
+				transition: color 0.3s ease;
+			}
+		</style>
+	</head>
+	<body class="bg-light-gray text-gray-800">
+		<!-- Navigation -->
+		<!-- Navigation -->
+		<nav class="bg-white/90 backdrop-blur sticky top-0 z-50 shadow-md">
+			<div class="max-w-6xl mx-auto px-6">
+				<div class="flex items-center justify-between h-16">
+					<!-- Logo -->
+					<a
+						href="index.html"
+						class="logo font-bold text-2xl text-blue-600 animate-bounce select-none"
+					>
+						VIPER
+					</a>
 
-  <!-- Навигация -->
-  <nav class="bg-gray-900/70 backdrop-blur sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex items-center justify-between h-16">
-        <div class="text-green-400 font-bold text-xl">VIPER</div>
-        <div class="hidden md:flex space-x-6 text-gray-300">
-          <a href="index.html" class="hover:text-green-400">Главная</a>
-          <a href="about.html" class="hover:text-green-400">О нас</a>
-          <a href="money.html" class="hover:text-green-400">Зарплаты</a>
-        </div>
-        <div class="md:hidden">
-          <button id="menu-btn" class="text-gray-300 focus:outline-none">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
-      <a href="index.html" class="block py-2 text-gray-300 hover:text-green-400">Главная</a>
-      <a href="about.html" class="block py-2 text-gray-300 hover:text-green-400">О нас</a>
-      <a href="#" class="block py-2 text-gray-300 hover:text-green-400">Зарплаты</a>
-    </div>
-  </nav>
+					<!-- Desktop Menu -->
+					<ul class="hidden md:flex space-x-8 text-gray-700 font-medium">
+						<li>
+							<a
+								href="index.html"
+								class="hover:text-blue-500 transition-colors duration-300"
+								>Home</a
+							>
+						</li>
+						<li>
+							<a
+								href="about.html"
+								class="hover:text-blue-500 transition-colors duration-300"
+								>About</a
+							>
+						</li>
+						<li>
+							<a
+								href="money.html"
+								class="hover:text-blue-500 transition-colors duration-300"
+								>Salary</a
+							>
+						</li>
+					</ul>
 
-  <!-- Контент О нас -->
-  <section class="min-h-screen flex items-center justify-center px-4">
-    <div class="max-w-3xl text-center">
-      <h1 class="text-4xl md:text-5xl font-bold text-green-300 mb-6">О нашей компании</h1>
-      <p class="text-lg text-gray-300">
-        Здесь будет информация о миссии, целях и ценностях VIPER COMPANY.
-      </p>
-    </div>
-  </section>
+					<!-- Mobile Menu Button -->
+					<button
+						id="menu-btn"
+						aria-label="Toggle menu"
+						class="md:hidden text-gray-700 focus:outline-none"
+					>
+						<svg
+							class="w-7 h-7"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+							aria-hidden="true"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M4 6h16M4 12h16M4 18h16"
+							/>
+						</svg>
+					</button>
+				</div>
+			</div>
 
-  <!-- Footer -->
-  <footer class="py-6 text-center text-gray-500 text-sm border-t border-gray-700">
-    &copy; 2025 VIPER COMPANY. Все права защищены.
-  </footer>
+			<!-- Mobile Menu -->
+			<div
+				id="mobile-menu"
+				class="md:hidden hidden bg-white/90 backdrop-blur px-6 pb-4 border-t border-gray-200"
+			>
+				<ul class="flex flex-col space-y-3 text-gray-700 font-medium">
+					<li>
+						<a
+							href="index.html"
+							class="block hover:text-blue-500 transition-colors duration-300"
+							>Home</a
+						>
+					</li>
+					<li>
+						<a
+							href="about.html"
+							class="block hover:text-blue-500 transition-colors duration-300"
+							>About</a
+						>
+					</li>
+					<li>
+						<a
+							href="money.html"
+							class="block hover:text-blue-500 transition-colors duration-300"
+							>Salary</a
+						>
+					</li>
+				</ul>
+			</div>
+		</nav>
 
-  <script>
-    document.getElementById('menu-btn').addEventListener('click', () => {
-      document.getElementById('mobile-menu').classList.toggle('hidden');
-    });
-  </script>
-</body>
+		<!-- About Us Section -->
+		<section class="min-h-screen flex items-center justify-center px-4 fade-up">
+			<div class="max-w-3xl text-center">
+				<h1 class="text-4xl md:text-5xl font-bold text-blue-600 mb-6">
+					About Our Company
+				</h1>
+				<p class="text-lg text-gray-700 mb-4">
+					VIPER COMPANY is a leading cybersecurity firm dedicated to protecting
+					digital assets worldwide. Our mission is to innovate and deliver
+					cutting-edge security solutions tailored to the ever-evolving cyber
+					threat landscape.
+				</p>
+				<p class="text-gray-700 mb-4">
+					Founded by industry experts, our team combines deep technical
+					knowledge with creative problem-solving skills to anticipate and
+					neutralize threats before they can cause harm.
+				</p>
+				<p class="text-gray-700">
+					We pride ourselves on our proactive approach, leveraging AI,
+					automation, and real-time analytics to stay one step ahead of cyber
+					attackers. Partner with VIPER to safeguard your digital future.
+				</p>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer
+			class="py-6 text-center text-gray-600 text-sm border-t border-gray-400"
+		>
+			&copy; 2025 VIPER COMPANY. All rights reserved.
+		</footer>
+
+		<!-- Scripts -->
+		<script>
+			const menuBtn = document.getElementById('menu-btn')
+			const mobileMenu = document.getElementById('mobile-menu')
+
+			menuBtn.addEventListener('click', () => {
+				mobileMenu.classList.toggle('hidden')
+			})
+
+			const observer = new IntersectionObserver(
+				entries => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('show')
+						}
+					})
+				},
+				{ threshold: 0.1 }
+			)
+
+			document.querySelectorAll('.fade-up').forEach(el => observer.observe(el))
+		</script>
+	</body>
 </html>

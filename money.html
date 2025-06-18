@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Salary – VIPER COMPANY</title>
 		<script src="https://cdn.tailwindcss.com"></script>
 		<style>
@@ -19,109 +19,108 @@
 			}
 			.btn-glow:hover {
 				background: linear-gradient(to right, #2563eb, #3b82f6);
-				transform: scale(1.03);
-				box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+				transform: scale(1.05);
+				box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
 			}
 			.job-card {
-				background-color: #f8fafc; /* Tailwind slate-50 */
-				padding: 1.5rem;
-				border-radius: 0.75rem;
-				transition: all 0.3s;
-				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+				background-color: #f8fafc; /* slate-50 */
+				padding: 1.75rem;
+				border-radius: 1rem;
+				transition: all 0.3s ease;
+				box-shadow: 0 6px 15px rgba(0, 0, 0, 0.07);
 				cursor: pointer;
-				border: 1px solid #cbd5e1; /* slate-300 border */
-				color: #1e293b; /* slate-800 text */
+				border: 1.5px solid #cbd5e1; /* slate-300 */
+				color: #1e293b; /* slate-800 */
 				font-weight: 600;
 				user-select: none;
+				opacity: 0;
+				transform: translateY(20px);
+			}
+			.job-card.visible {
+				opacity: 1;
+				transform: translateY(0);
+				transition: opacity 0.6s ease, transform 0.6s ease;
 			}
 			.job-card:hover {
 				background-color: #e0e7ff; /* indigo-100 */
-				box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
-				transform: scale(1.05);
+				box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+				transform: translateY(-8px) scale(1.06);
 				color: #2563eb; /* indigo-600 */
+			}
+			/* Modal Overlay */
+			#modal-overlay {
+				background-color: rgba(255, 255, 255, 0.9);
+				backdrop-filter: blur(6px);
+				transition: opacity 0.3s ease;
+			}
+			#modal {
+				max-height: 80vh;
+				overflow-y: auto;
+			}
+			/* Scrollbar for modal */
+			#modal::-webkit-scrollbar {
+				width: 8px;
+			}
+			#modal::-webkit-scrollbar-thumb {
+				background-color: rgba(59, 130, 246, 0.4);
+				border-radius: 4px;
 			}
 		</style>
 	</head>
 	<body class="bg-light-gray text-gray-800">
 		<!-- Navigation -->
-		<nav class="bg-white/80 backdrop-blur sticky top-0 z-50 shadow-md">
-			<div class="max-w-6xl mx-auto px-4">
-				<div class="flex items-center justify-between h-16">
-					<div class="text-blue-600 font-bold text-xl cursor-default">
-						VIPER
-					</div>
-					<div class="hidden md:flex space-x-6 text-gray-700">
-						<a href="index.html" class="hover:text-blue-500 cursor-pointer"
-							>Home</a
-						>
-						<a href="about.html" class="hover:text-blue-500 cursor-pointer"
-							>About</a
-						>
-						<a
-							href="salary.html"
-							class="hover:text-blue-500 cursor-pointer font-semibold"
-							>Salary</a
-						>
-					</div>
-					<div class="md:hidden">
-						<button
-							id="menu-btn"
-							class="text-gray-700 focus:outline-none"
-							aria-label="Toggle menu"
-						>
-							<svg
-								class="w-6 h-6"
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M4 6h16M4 12h16M4 18h16"
-								/>
-							</svg>
-						</button>
-					</div>
-				</div>
-			</div>
-			<div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
-				<a
-					href="index.html"
-					class="block py-2 text-gray-700 hover:text-blue-500"
-					>Home</a
-				>
-				<a
-					href="about.html"
-					class="block py-2 text-gray-700 hover:text-blue-500"
-					>About</a
-				>
-				<a
-					href="salary.html"
-					class="block py-2 text-gray-700 hover:text-blue-500 font-semibold"
-					>Salary</a
-				>
-			</div>
-		</nav>
+	<!-- Navigation -->
+<nav class="bg-white/90 backdrop-blur sticky top-0 z-50 shadow-md">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="index.html" class="logo font-bold text-2xl text-blue-600 animate-bounce select-none">
+        VIPER
+      </a>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex space-x-8 text-gray-700 font-medium">
+        <li><a href="index.html" class="hover:text-blue-500 transition-colors duration-300">Home</a></li>
+        <li><a href="about.html" class="hover:text-blue-500 transition-colors duration-300">About</a></li>
+        <li><a href="money.html" class="hover:text-blue-500 transition-colors duration-300">Salary</a></li>
+      </ul>
+
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" aria-label="Toggle menu" class="md:hidden text-gray-700 focus:outline-none">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden hidden bg-white/90 backdrop-blur px-6 pb-4 border-t border-gray-200">
+    <ul class="flex flex-col space-y-3 text-gray-700 font-medium">
+      <li><a href="index.html" class="block hover:text-blue-500 transition-colors duration-300">Home</a></li>
+      <li><a href="about.html" class="block hover:text-blue-500 transition-colors duration-300">About</a></li>
+      <li><a href="money.html" class="block hover:text-blue-500 transition-colors duration-300">Salary</a></li>
+    </ul>
+  </div>
+</nav>
+
 
 		<!-- Content -->
 		<section class="min-h-screen py-12 px-4 flex flex-col items-center">
-			<div class="max-w-4xl text-center mb-10">
+			<div class="max-w-4xl text-center mb-12">
 				<h1 class="text-4xl font-bold text-blue-600 mb-6">
 					Salary Levels & Career Growth
 				</h1>
 				<p class="text-lg text-gray-700 max-w-xl mx-auto mb-4">
-					At VIPER COMPANY, we are committed to rewarding excellence and
-					supporting your professional growth. Our competitive salary packages
-					reflect your skills, experience, and impact on our mission to
-					safeguard cyberspace.
+					At VIPER COMPANY, we reward excellence and support your professional
+					growth. Our competitive salary packages reflect your skills,
+					experience, and impact on our mission to safeguard cyberspace.
 				</p>
 				<p class="text-md text-gray-600 max-w-xl mx-auto">
-					Explore the details below to understand the compensation ranges,
-					required qualifications, and typical responsibilities for each role.
-					Join us and become part of a cutting-edge cybersecurity team where
-					innovation meets dedication.
+					Explore the details below to understand compensation ranges,
+					qualifications, and responsibilities for each role. Join us and become
+					part of a cutting-edge cybersecurity team where innovation meets
+					dedication.
 				</p>
 			</div>
 
@@ -132,9 +131,9 @@
           '$5,000 – $8,000 per month',
           `The Security Engineer role focuses on protecting networks and systems from cyber threats. You will conduct penetration testing, vulnerability assessments, and incident response.
           
-          <strong>Required Skills:</strong> Deep knowledge of TCP/IP, Linux administration, firewall configuration, and scripting.
-          
-          <strong>Responsibilities:</strong> Monitor security alerts, audit infrastructure, implement security policies, and collaborate with development teams to fix vulnerabilities.`
+<strong>Required Skills:</strong> Deep knowledge of TCP/IP, Linux administration, firewall configuration, and scripting.
+
+<strong>Responsibilities:</strong> Monitor security alerts, audit infrastructure, implement security policies, and collaborate with development teams to fix vulnerabilities.`
         )"
 					class="job-card"
 					tabindex="0"
@@ -153,9 +152,9 @@
           '$6,500 – $10,000 per month',
           `As an AI/ML Specialist, you will develop advanced machine learning models to detect and mitigate cyber threats in real time.
           
-          <strong>Required Skills:</strong> Expertise in Python, TensorFlow/PyTorch, data preprocessing, and model deployment.
-          
-          <strong>Responsibilities:</strong> Design anomaly detection algorithms, work with large datasets, improve threat intelligence systems, and automate defense mechanisms.`
+<strong>Required Skills:</strong> Expertise in Python, TensorFlow/PyTorch, data preprocessing, and model deployment.
+
+<strong>Responsibilities:</strong> Design anomaly detection algorithms, work with large datasets, improve threat intelligence systems, and automate defense mechanisms.`
         )"
 					class="job-card"
 					tabindex="0"
@@ -174,9 +173,9 @@
           '$7,000 – $11,000 per month',
           `The Cloud Architect designs secure and scalable cloud infrastructures, ensuring high availability and compliance.
           
-          <strong>Required Skills:</strong> Proficiency with AWS/Azure/GCP, DevOps pipelines, container orchestration (Kubernetes), and cloud security best practices.
-          
-          <strong>Responsibilities:</strong> Architect cloud solutions, enforce security controls, optimize resources, and collaborate with cross-functional teams for deployment.`
+<strong>Required Skills:</strong> Proficiency with AWS/Azure/GCP, DevOps pipelines, container orchestration (Kubernetes), and cloud security best practices.
+
+<strong>Responsibilities:</strong> Architect cloud solutions, enforce security controls, optimize resources, and collaborate with cross-functional teams for deployment.`
         )"
 					class="job-card"
 					tabindex="0"
@@ -195,9 +194,9 @@
           '$5,500 – $9,000 per month',
           `Security Researchers investigate emerging threats and vulnerabilities to keep our defenses ahead of attackers.
           
-          <strong>Required Skills:</strong> Strong knowledge of reverse engineering, exploit development, malware analysis, and scripting languages.
-          
-          <strong>Responsibilities:</strong> Conduct threat intelligence research, discover zero-day vulnerabilities, report findings, and contribute to the security community.`
+<strong>Required Skills:</strong> Strong knowledge of reverse engineering, exploit development, malware analysis, and scripting languages.
+
+<strong>Responsibilities:</strong> Conduct threat intelligence research, discover zero-day vulnerabilities, report findings, and contribute to the security community.`
         )"
 					class="job-card"
 					tabindex="0"
@@ -216,11 +215,15 @@
 		<!-- Modal -->
 		<div
 			id="modal-overlay"
-			class="fixed inset-0 bg-white/80 backdrop-blur-sm hidden z-50 flex items-center justify-center px-4"
+			class="fixed inset-0 bg-white/90 backdrop-blur-sm hidden z-50 flex items-center justify-center px-4"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="modal-title"
 		>
 			<div
 				id="modal"
 				class="bg-white max-w-lg w-full p-6 rounded-xl shadow-lg relative border border-gray-300 overflow-y-auto max-h-[80vh]"
+				tabindex="-1"
 			>
 				<button
 					onclick="closeModal()"
@@ -232,11 +235,11 @@
 				<h2 id="modal-title" class="text-3xl font-bold text-blue-600 mb-4"></h2>
 				<p
 					id="modal-salary"
-					class="mb-5 text-md text-gray-600 font-semibold"
+					class="mb-6 text-md text-gray-700 font-semibold"
 				></p>
 				<div
 					id="modal-content"
-					class="text-gray-700 leading-relaxed whitespace-pre-line mb-6"
+					class="text-gray-700 leading-relaxed whitespace-pre-line mb-8"
 				></div>
 				<button
 					class="btn-glow text-white px-6 py-3 rounded-lg font-semibold"
@@ -261,16 +264,19 @@
 
 		<!-- Scripts -->
 		<script>
-			document.getElementById('menu-btn').addEventListener('click', () => {
-				document.getElementById('mobile-menu').classList.toggle('hidden')
-			})
+			const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+menuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+});
+
 
 			function openModal(title, salary, content) {
 				document.getElementById('modal-overlay').classList.remove('hidden')
 				document.getElementById('modal-title').textContent = title
 				document.getElementById('modal-salary').textContent =
 					'Salary: ' + salary
-				// Set innerHTML to allow <strong> tags from content
 				document.getElementById('modal-content').innerHTML = content
 				// Focus modal for accessibility
 				document.getElementById('modal').focus()
@@ -286,6 +292,21 @@
 					closeModal()
 				}
 			})
+
+			// Animate job cards on scroll
+			const jobCards = document.querySelectorAll('.job-card')
+			const observer = new IntersectionObserver(
+				entries => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('visible')
+							observer.unobserve(entry.target)
+						}
+					})
+				},
+				{ threshold: 0.15 }
+			)
+			jobCards.forEach(card => observer.observe(card))
 		</script>
 	</body>
 </html>

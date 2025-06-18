@@ -2,169 +2,139 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home – VIPER COMPANY</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      scroll-behavior: smooth;
     }
-
     .bg-light-gray {
       background: linear-gradient(to right, #e2e8f0, #cbd5e1);
     }
-
     .btn-glow {
       background: linear-gradient(to right, #3b82f6, #2563eb);
       transition: all 0.3s ease;
     }
-
     .btn-glow:hover {
       background: linear-gradient(to right, #2563eb, #3b82f6);
       transform: scale(1.05);
       box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
     }
-
     .fade-up {
       opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
     }
-
-    .fade-up.active {
+    .fade-up.show {
       opacity: 1;
       transform: translateY(0);
     }
-
-    .fade-scale {
-      transform: scale(0.95);
-      opacity: 0;
-      transition: all 1s ease-in-out;
+    .card-anim {
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
-
-    .fade-scale.active {
-      transform: scale(1);
-      opacity: 1;
+    .card-anim:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     }
   </style>
 </head>
 <body class="bg-light-gray text-gray-800">
 
-<!-- Navigation -->
-<nav class="bg-white/80 backdrop-blur sticky top-0 z-50 shadow-md">
-  <div class="max-w-6xl mx-auto px-4">
+  <!-- Navigation -->
+  <!-- Navigation -->
+<nav class="bg-white/90 backdrop-blur sticky top-0 z-50 shadow-md">
+  <div class="max-w-6xl mx-auto px-6">
     <div class="flex items-center justify-between h-16">
-      <div class="text-blue-600 font-bold text-xl animate-bounce">VIPER</div>
-      <div class="hidden md:flex space-x-6 text-gray-700">
-        <a href="index.html" class="hover:text-blue-500 cursor-pointer transition duration-300">Home</a>
-        <a href="about.html" class="hover:text-blue-500 cursor-pointer transition duration-300">About</a>
-        <a href="money.html" class="hover:text-blue-500 cursor-pointer transition duration-300">Salary</a>
-        <button onclick="toggleTheme()" class="ml-4 text-sm px-2 py-1 border rounded text-gray-600 hover:text-black">🌗</button>
-      </div>
-      <div class="md:hidden">
-        <button id="menu-btn" class="text-gray-700 focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </button>
-      </div>
+      <!-- Logo -->
+      <a href="index.html" class="logo font-bold text-2xl text-blue-600 animate-bounce select-none">
+        VIPER
+      </a>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex space-x-8 text-gray-700 font-medium">
+        <li><a href="index.html" class="hover:text-blue-500 transition-colors duration-300">Home</a></li>
+        <li><a href="about.html" class="hover:text-blue-500 transition-colors duration-300">About</a></li>
+        <li><a href="money.html" class="hover:text-blue-500 transition-colors duration-300">Salary</a></li>
+      </ul>
+
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" aria-label="Toggle menu" class="md:hidden text-gray-700 focus:outline-none">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
     </div>
   </div>
-  <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
-    <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-500">Home</a>
-    <a href="about.html" class="block py-2 text-gray-700 hover:text-blue-500">About</a>
-    <a href="money.html" class="block py-2 text-gray-700 hover:text-blue-500">Salary</a>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden hidden bg-white/90 backdrop-blur px-6 pb-4 border-t border-gray-200">
+    <ul class="flex flex-col space-y-3 text-gray-700 font-medium">
+      <li><a href="index.html" class="block hover:text-blue-500 transition-colors duration-300">Home</a></li>
+      <li><a href="about.html" class="block hover:text-blue-500 transition-colors duration-300">About</a></li>
+      <li><a href="money.html" class="block hover:text-blue-500 transition-colors duration-300">Salary</a></li>
+    </ul>
   </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="min-h-screen flex items-center justify-center px-4">
-  <div class="max-w-3xl text-center fade-scale">
-    <h1 class="text-4xl md:text-5xl font-bold text-blue-600 mb-6">Cybersecurity with Precision</h1>
-    <p class="text-lg text-gray-700 mb-6">
-      We use artificial intelligence, automation, and deep analytics to stop cyber threats before they begin.
-    </p>
-    <a href="mission.html">
-      <button class="btn-glow text-white px-6 py-3 rounded-lg font-semibold">
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex items-center justify-center px-4">
+    <div class="max-w-3xl text-center fade-up">
+      <h1 class="text-4xl md:text-5xl font-bold text-blue-600 mb-6">Cybersecurity with Precision</h1>
+      <p class="text-lg text-gray-700 mb-6">
+        We use artificial intelligence, automation, and deep analytics to stop cyber threats before they begin.
+      </p>
+      <button class="btn-glow text-white px-6 py-3 rounded-lg font-semibold" onclick="document.getElementById('mission').scrollIntoView({ behavior: 'smooth' })">
         Our Mission
       </button>
-    </a>
-  </div>
-</section>
-
-<!-- Features Section -->
-<section class="py-16 px-4 fade-up">
-  <div class="max-w-5xl mx-auto text-center">
-    <h2 class="text-3xl font-bold text-gray-800 mb-6">Why Choose VIPER?</h2>
-    <p class="text-gray-700 mb-8">Our team is made of elite cybersecurity professionals passionate about protecting global systems.</p>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-      <div class="hover:scale-105 transition duration-500">
-        <h3 class="text-xl font-semibold text-blue-600 mb-2">Next-Gen Security</h3>
-        <p class="text-gray-600">We use cutting-edge AI to detect, prevent, and neutralize threats before they strike.</p>
-      </div>
-      <div class="hover:scale-105 transition duration-500">
-        <h3 class="text-xl font-semibold text-blue-600 mb-2">Skilled Experts</h3>
-        <p class="text-gray-600">Every team member is handpicked for their skill, creativity, and ability to think like an attacker.</p>
-      </div>
-      <div class="hover:scale-105 transition duration-500">
-        <h3 class="text-xl font-semibold text-blue-600 mb-2">24/7 Monitoring</h3>
-        <p class="text-gray-600">Our systems never sleep. Real-time analytics ensure your data is always secure.</p>
-      </div>
+     
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Back to Top -->
-<button onclick="scrollToTop()" class="fixed bottom-5 right-5 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 hidden" id="topBtn" title="Go to top">
-  ↑
-</button>
+  <!-- Mission Section -->
+  <section id="mission" class="min-h-screen py-16 px-4 bg-white/70">
+    <div class="max-w-4xl mx-auto text-center fade-up card-anim">
+      <h2 class="text-4xl md:text-5xl font-bold text-blue-600 mb-6">Our Mission</h2>
+      <p class="text-lg text-gray-700 mb-4">
+        We want to make the internet a safe place. VIPER helps people stay safe online by constantly improving the way we detect, defend, and respond to cyber attacks.
+      </p>
+      <p class="text-lg text-gray-700 mb-4">
+        Our team of cybersecurity professionals works around the clock to monitor systems, detect intrusions, and build robust defense systems tailored to each client's needs.
+      </p>
+      <p class="text-lg text-gray-700 mb-4">
+        At VIPER, we are more than just a security company. We are a partner in your digital journey, committed to keeping your data protected from evolving threats.
+      </p>
+      <p class="text-lg text-gray-700">
+        Safety is not just technology. It's a mindset, a daily commitment, and a part of our culture. At VIPER, we stay one step ahead.
+      </p>
+    </div>
+  </section>
 
-<!-- Footer -->
-<footer class="py-6 text-center text-gray-600 text-sm border-t border-gray-400">
-  &copy; 2025 VIPER COMPANY. All rights reserved.
-</footer>
+  <!-- Footer -->
+  <footer class="py-6 text-center text-gray-600 text-sm border-t border-gray-400">
+    &copy; 2025 VIPER COMPANY. All rights reserved.
+  </footer>
 
-<!-- Scripts -->
-<script>
-  // Mobile menu toggle
-  document.getElementById('menu-btn').addEventListener('click', () => {
-    document.getElementById('mobile-menu').classList.toggle('hidden');
-  });
+  <!-- Script -->
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
 
-  // Scroll animation
-  const fadeElements = document.querySelectorAll('.fade-up, .fade-scale');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      }
-    });
-  }, { threshold: 0.2 });
-  fadeElements.forEach(el => observer.observe(el));
+menuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+});
 
-  // Scroll to top button
-  const topBtn = document.getElementById('topBtn');
-  window.addEventListener('scroll', () => {
-    topBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
-  });
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
 
-  // Theme toggle
-  function toggleTheme() {
-    document.body.classList.toggle('dark');
-    if (document.body.classList.contains('dark')) {
-      document.body.classList.replace('bg-light-gray', 'bg-gray-900');
-      document.body.classList.replace('text-gray-800', 'text-gray-100');
-    } else {
-      document.body.classList.replace('bg-gray-900', 'bg-light-gray');
-      document.body.classList.replace('text-gray-100', 'text-gray-800');
-    }
-  }
-</script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
-  
